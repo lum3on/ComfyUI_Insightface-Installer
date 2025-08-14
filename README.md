@@ -1,5 +1,7 @@
 # ComfyUI Insightface Installer
 
+![photo_5253666428568074125_w](https://github.com/user-attachments/assets/718f2899-895f-44c6-87fe-9e8d880e0aee)
+
 A ComfyUI custom node that provides an easy-to-use interface for installing the correct Insightface wheel based on your Python version and ComfyUI installation type.
 
 ## Features
