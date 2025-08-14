@@ -13,7 +13,7 @@ import { app } from "../../scripts/app.js";
 // Configuration for the skin
 const SKIN_CONFIG = {
     nodeType: "InsightfaceInstaller",
-    backgroundVideo: "/extensions/ComfyUI-Insightface-Installer/social_yo9otatara_httpss.mj.run9tOjy1psBZ0_light_hearted_daylight_so_af383426-114f-401f-885b-15b19d88725d_2.mp4",
+    backgroundVideo: "/extensions/ComfyUI_Insightface-Installer/background_video.mp4",
     opacity: 1.0,
     textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
     borderRadius: "8px",
@@ -22,7 +22,7 @@ const SKIN_CONFIG = {
 
 // Load CSS file
 function loadCSS() {
-    const cssPath = `/extensions/ComfyUI-Insightface-Installer/insightface_skin.css?v=${Date.now()}`;
+    const cssPath = `/extensions/ComfyUI_Insightface-Installer/insightface_skin.css?v=${Date.now()}`;
     const link = document.createElement("link");
     link.rel = "stylesheet";
     link.type = "text/css";
@@ -75,13 +75,13 @@ function applyNodeSkin(node) {
 let backgroundVideo = null;
 function preloadBackgroundVideo() {
     if (backgroundVideo) return; // Prevent re-initialization
-    
+
     backgroundVideo = document.createElement("video");
     backgroundVideo.muted = true;
     backgroundVideo.loop = true; // Keep for fallback
     backgroundVideo.autoplay = true;
     backgroundVideo.playsInline = true;
-    
+
     let isPlaying = false;
     let errorOccurred = false;
 
@@ -103,15 +103,49 @@ function preloadBackgroundVideo() {
             console.warn("Autoplay was prevented for background video.", e);
         });
     };
-    
-    backgroundVideo.onerror = function() {
+
+    backgroundVideo.onerror = function(e) {
         errorOccurred = true;
         isPlaying = false;
         console.error("Failed to load background video:", SKIN_CONFIG.backgroundVideo);
+        console.error("Video error details:", e);
+
+        // Try alternative paths if the main one fails
+        const altPaths = [
+            `/extensions/ComfyUI_Insightface-Installer/web/background_video.mp4`,
+            `./extensions/ComfyUI_Insightface-Installer/web/background_video.mp4`,
+            `../web/background_video.mp4`
+        ];
+
+        tryAlternativePaths(altPaths, 0);
     };
 
     backgroundVideo.src = SKIN_CONFIG.backgroundVideo;
     backgroundVideo.load(); // Start loading the video
+}
+
+// Function to try alternative video paths
+function tryAlternativePaths(paths, index) {
+    if (index >= paths.length) {
+        console.error("All video paths failed. Video background will not be displayed.");
+        return;
+    }
+
+    const testVideo = document.createElement("video");
+    testVideo.muted = true;
+
+    testVideo.oncanplay = function() {
+        console.log("Alternative video path successful:", paths[index]);
+        backgroundVideo.src = paths[index];
+        backgroundVideo.load();
+    };
+
+    testVideo.onerror = function() {
+        console.warn("Alternative path failed:", paths[index]);
+        tryAlternativePaths(paths, index + 1);
+    };
+
+    testVideo.src = paths[index];
 }
 
 // Function to draw custom background
