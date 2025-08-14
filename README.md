@@ -7,7 +7,7 @@ A ComfyUI custom node that provides an easy-to-use interface for installing the 
 ## Features
 
 - 🐍 **Multi-Python Support**: Supports Python 3.10, 3.11, and 3.12
-- 🔧 **Installation Type Detection**: Handles both regular and portable ComfyUI installations
+- 🔧 **Auto-Detection**: Automatically detects portable vs regular ComfyUI installations
 - 📦 **Automatic Downloads**: Downloads wheels directly to your ComfyUI root directory
 - ⚡ **Smart Detection**: Automatically detects your ComfyUI root directory
 - 🛡️ **Robust Error Handling**: Comprehensive error handling with clear user feedback
@@ -42,7 +42,7 @@ A ComfyUI custom node that provides an easy-to-use interface for installing the 
 
 2. **Configure Settings**:
    - **Python Version**: Select your Python version (3.10, 3.11, or 3.12)
-   - **Installation Type**: Choose between "Regular ComfyUI" or "Portable ComfyUI"
+   - **Installation Type**: Auto-detected (Portable/Regular), but can be manually overridden if needed
    - **Force Reinstall**: Enable if you want to reinstall even if Insightface is already present
 
 3. **Execute**: Run the workflow to download and install the Insightface wheel
@@ -81,8 +81,9 @@ The node returns a status message indicating:
 ### Common Issues
 
 1. **"Python embedded not found"**
-   - Ensure you're using "Regular ComfyUI" if you don't have a portable installation
-   - Check that `python_embeded` folder exists in your ComfyUI root
+   - The installer should auto-detect your installation type, but you can manually override if needed
+   - If you have a portable installation, ensure the `python_embeded` folder exists in your ComfyUI root
+   - If auto-detection fails, manually select "Regular ComfyUI" for standard installations
 
 2. **"Download failed"**
    - Check your internet connection

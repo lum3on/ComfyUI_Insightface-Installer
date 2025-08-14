@@ -41,6 +41,49 @@ class InsightfaceInstaller:
         "3.12": "insightface-0.7.3-cp312-cp312-win_amd64.whl"
     }
 
+    @staticmethod
+    def _detect_installation_type():
+        """
+        Detect whether we're in a portable or regular ComfyUI installation.
+
+        Returns:
+            str: "Portable ComfyUI" if portable installation detected, "Regular ComfyUI" otherwise
+        """
+        try:
+            # Find ComfyUI root directory
+            current_path = Path(__file__).resolve()
+
+            # Look for ComfyUI root indicators
+            comfyui_root = None
+            for parent in current_path.parents:
+                if (parent / "main.py").exists() and (parent / "comfy").exists():
+                    comfyui_root = parent
+                    break
+
+            # Fallback: assume we're in custom_nodes and go up two levels
+            if comfyui_root is None and "custom_nodes" in str(current_path):
+                for parent in current_path.parents:
+                    if parent.name == "custom_nodes":
+                        comfyui_root = parent.parent
+                        break
+
+            # Last resort: use current working directory
+            if comfyui_root is None:
+                comfyui_root = Path.cwd()
+
+            # Check for portable installation indicators
+            python_embeded_path = comfyui_root / "python_embeded"
+            if python_embeded_path.exists() and python_embeded_path.is_dir():
+                print(f"🔍 Auto-detected: Portable ComfyUI installation (found python_embeded at {python_embeded_path})")
+                return "Portable ComfyUI"
+            else:
+                print(f"🔍 Auto-detected: Regular ComfyUI installation (no python_embeded found)")
+                return "Regular ComfyUI"
+
+        except Exception as e:
+            print(f"⚠️ Warning: Could not auto-detect installation type ({e}), defaulting to Regular ComfyUI")
+            return "Regular ComfyUI"
+
     @classmethod
     def INPUT_TYPES(s):
         """
@@ -49,13 +92,16 @@ class InsightfaceInstaller:
         Returns:
             Dict containing the input specifications for ComfyUI
         """
+        # Auto-detect installation type for default value
+        detected_type = s._detect_installation_type()
+
         return {
             "required": {
                 "python_version": (["3.10", "3.11", "3.12"], {
                     "default": "3.11"
                 }),
                 "installation_type": (["Regular ComfyUI", "Portable ComfyUI"], {
-                    "default": "Regular ComfyUI"
+                    "default": detected_type
                 }),
                 "force_reinstall": ("BOOLEAN", {
                     "default": False
@@ -243,6 +289,13 @@ class InsightfaceInstaller:
             print(f"ComfyUI root directory: {self.comfyui_root}")
             print(f"Installing Insightface for Python {python_version}")
             print(f"Installation type: {installation_type}")
+
+            # Show detection info if using auto-detected type
+            detected_type = self._detect_installation_type()
+            if installation_type == detected_type:
+                print(f"✅ Using auto-detected installation type: {installation_type}")
+            else:
+                print(f"⚠️ Manual override: detected {detected_type}, but using {installation_type}")
             
             # Download the wheel
             download_success, download_msg = self._download_wheel(python_version, download_path)
