@@ -1,0 +1,153 @@
+{
+  "id": "0313b265-4f56-40ec-82fd-8af12dc525ab",
+  "revision": 0,
+  "last_node_id": 26,
+  "last_link_id": 11,
+  "nodes": [
+    {
+      "id": 26,
+      "type": "ShowText|pysssss",
+      "pos": [
+        358.7776794433594,
+        717.2318725585938
+      ],
+      "size": [
+        349.3622131347656,
+        312.2552795410156
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "ShowText|pysssss",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "✅ Successfully installed Insightface wheel: insightface-0.7.3-cp310-cp310-win_amd64.whl"
+      ],
+      "color": "#5785d1",
+      "bgcolor": "#4371bd"
+    },
+    {
+      "id": 19,
+      "type": "MarkdownNote",
+      "pos": [
+        -229.42222595214844,
+        1275.98779296875
+      ],
+      "size": [
+        525.8703002929688,
+        150.44447326660156
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Tutorial",
+      "properties": {
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "🐍 Python Version: Choose your Python version\n3.10 / 3.11 / 3.12 (default: 3.11)\n\n⚙️ Installation Type: Select your ComfyUI setup\nRegular ComfyUI (standard installation)\nPortable ComfyUI (portable/embedded version)\n\n🔄 Force Reinstall: Toggle if needed\nFalse (default) - Skip if already installed\nTrue - Reinstall even if present\n\nignore backgroudn toogle, it doesnt go away...=("
+      ],
+      "color": "#ffff56",
+      "bgcolor": "#fcff42"
+    },
+    {
+      "id": 13,
+      "type": "InsightfaceInstaller",
+      "pos": [
+        -231.32150268554688,
+        713.2245483398438
+      ],
+      "size": [
+        562.8228149414062,
+        495.1041564941406
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "installation_status",
+          "type": "STRING",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65,
+        "Node name for S&R": "InsightfaceInstaller",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "3.10",
+        "Regular ComfyUI",
+        true,
+        true
+      ],
+      "color": "#2B3B72",
+      "bgcolor": "rgba(0,0,0,0)"
+    }
+  ],
+  "links": [
+    [
+      11,
+      13,
+      0,
+      26,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5559917313492346,
+      "offset": [
+        905.076926941563,
+        -425.81208810907754
+      ]
+    },
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.24.4"
+  },
+  "version": 0.4
+}

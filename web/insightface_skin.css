@@ -1,0 +1,182 @@
+/**
+ * ComfyUI Insightface Installer - Custom Node Skin CSS
+ * 
+ * This CSS file provides custom styling for the InsightfaceInstaller node
+ * with a beautiful background image and enhanced readability.
+ * 
+ * Author: ComfyUI Node Architect
+ * Version: 1.0.0
+ */
+
+/* Drawing is done in JS now; keep CSS minimal and non-conflicting */
+.litegraph .node.insightface-installer-node { /* legacy hook, unused */ }
+
+/* The overlay is now handled in JS for better control. This is removed. */
+
+/* Node title styling */
+.litegraph .node[data-node-type="InsightfaceInstaller"] .title,
+.comfy-node[data-node-type="InsightfaceInstaller"] .title,
+.node[data-node-type="InsightfaceInstaller"] .title {
+    color: #FFFFFF !important; /* Pure white for max contrast */
+    text-shadow:
+        0 0 2px rgba(255,255,255,0.5), /* Inner glow */
+        0 0 8px rgba(0,0,0,1),         /* Outer black glow */
+        1px 1px 3px rgba(0,0,0,1) !important;  /* Hard drop shadow */
+    font-weight: bold !important;
+    position: relative;
+    z-index: 10;
+    padding: 6px 10px !important;
+    border-radius: 6px 6px 0 0 !important;
+    margin: -2px -2px 4px -2px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Widget container styling */
+.litegraph .node[data-node-type="InsightfaceInstaller"] .widgets_container,
+.comfy-node[data-node-type="InsightfaceInstaller"] .widgets_container,
+.node[data-node-type="InsightfaceInstaller"] .widgets_container {
+    position: relative;
+    z-index: 5;
+    padding: 8px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 0 0 6px 6px;
+}
+
+/* Widget labels */
+.litegraph .node[data-node-type="InsightfaceInstaller"] .widget_label,
+.comfy-node[data-node-type="InsightfaceInstaller"] .widget_label,
+.node[data-node-type="InsightfaceInstaller"] .widget_label {
+    color: #FFFFFF !important;
+    text-shadow:
+        0 0 2px rgba(255,255,255,0.4),
+        0 0 6px rgba(0,0,0,1),
+        1px 1px 2px rgba(0,0,0,1) !important;
+    font-weight: 600 !important;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 4px;
+}
+
+/* Input fields and selects */
+.litegraph .node[data-node-type="InsightfaceInstaller"] input,
+.litegraph .node[data-node-type="InsightfaceInstaller"] select,
+.comfy-node[data-node-type="InsightfaceInstaller"] input,
+.comfy-node[data-node-type="InsightfaceInstaller"] select,
+.node[data-node-type="InsightfaceInstaller"] input,
+.node[data-node-type="InsightfaceInstaller"] select {
+    background: rgba(255,255,255,0.95) !important;
+    border: 1px solid rgba(0,0,0,0.3) !important;
+    border-radius: 4px !important;
+    color: #333 !important;
+    position: relative;
+    z-index: 10;
+    padding: 4px 8px !important;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Input focus states */
+.litegraph .node[data-node-type="InsightfaceInstaller"] input:focus,
+.litegraph .node[data-node-type="InsightfaceInstaller"] select:focus,
+.comfy-node[data-node-type="InsightfaceInstaller"] input:focus,
+.comfy-node[data-node-type="InsightfaceInstaller"] select:focus,
+.node[data-node-type="InsightfaceInstaller"] input:focus,
+.node[data-node-type="InsightfaceInstaller"] select:focus {
+    background: rgba(255,255,255,1) !important;
+    border-color: #4CAF50 !important;
+    box-shadow: 0 0 8px rgba(76,175,80,0.3) !important;
+    outline: none !important;
+}
+
+/* Checkbox styling */
+.litegraph .node[data-node-type="InsightfaceInstaller"] input[type="checkbox"],
+.comfy-node[data-node-type="InsightfaceInstaller"] input[type="checkbox"],
+.node[data-node-type="InsightfaceInstaller"] input[type="checkbox"] {
+    background: rgba(255,255,255,0.9) !important;
+    position: relative;
+    z-index: 10;
+    transform: scale(1.2);
+    margin: 4px;
+}
+
+/* Connection slots */
+.litegraph .node[data-node-type="InsightfaceInstaller"] .slot,
+.comfy-node[data-node-type="InsightfaceInstaller"] .slot,
+.node[data-node-type="InsightfaceInstaller"] .slot {
+    position: relative;
+    z-index: 10;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 50%;
+}
+
+/* Selected state */
+.litegraph .node[data-node-type="InsightfaceInstaller"].selected,
+.comfy-node[data-node-type="InsightfaceInstaller"].selected,
+.node[data-node-type="InsightfaceInstaller"].selected {
+    border-color: #ffffff !important;
+    box-shadow: 0 0 15px rgba(255,255,255,0.6) !important;
+}
+
+/* Error state */
+.litegraph .node[data-node-type="InsightfaceInstaller"].error,
+.comfy-node[data-node-type="InsightfaceInstaller"].error,
+.node[data-node-type="InsightfaceInstaller"].error {
+    border-color: #ff4444 !important;
+    box-shadow: 0 0 15px rgba(255,68,68,0.6) !important;
+}
+
+/* Hover effects */
+.litegraph .node[data-node-type="InsightfaceInstaller"]:hover,
+.comfy-node[data-node-type="InsightfaceInstaller"]:hover,
+.node[data-node-type="InsightfaceInstaller"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+/* Ensure all text elements are readable */
+.litegraph .node[data-node-type="InsightfaceInstaller"] *,
+.comfy-node[data-node-type="InsightfaceInstaller"] *,
+.node[data-node-type="InsightfaceInstaller"] * {
+    position: relative;
+    z-index: 5;
+}
+
+/* Output text styling */
+.litegraph .node[data-node-type="InsightfaceInstaller"] .output_text,
+.comfy-node[data-node-type="InsightfaceInstaller"] .output_text,
+.node[data-node-type="InsightfaceInstaller"] .output_text {
+    color: #FFFFFF !important;
+    text-shadow:
+        0 0 5px rgba(0,0,0,1),
+        1px 1px 2px rgba(0,0,0,1) !important;
+    background: rgba(0,0,0,0.3);
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin: 4px 0;
+}
+
+/* Button styling if any */
+.litegraph .node[data-node-type="InsightfaceInstaller"] button,
+.comfy-node[data-node-type="InsightfaceInstaller"] button,
+.node[data-node-type="InsightfaceInstaller"] button {
+    background: rgba(76,175,80,0.9) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 6px 12px !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5) !important;
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10;
+}
+
+.litegraph .node[data-node-type="InsightfaceInstaller"] button:hover,
+.comfy-node[data-node-type="InsightfaceInstaller"] button:hover,
+.node[data-node-type="InsightfaceInstaller"] button:hover {
+    background: rgba(76,175,80,1) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}

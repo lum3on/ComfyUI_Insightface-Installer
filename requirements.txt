@@ -1,0 +1,11 @@
+# ComfyUI Insightface Installer Requirements
+# 
+# This node uses only Python standard library modules:
+# - os, sys, subprocess (system operations)
+# - urllib.request, urllib.error (downloading)
+# - pathlib (path handling)
+# - platform (system detection)
+# - json (data handling)
+# - typing (type hints)
+#
+# No additional dependencies required beyond ComfyUI itself.
