@@ -72,7 +72,7 @@ class InsightfaceInstaller:
                 comfyui_root = Path.cwd()
 
             # Check for portable installation indicators
-            python_embeded_path = comfyui_root / "python_embeded"
+            python_embeded_path = comfyui_root.parent / "python_embeded"
             if python_embeded_path.exists() and python_embeded_path.is_dir():
                 print(f"🔍 Auto-detected: Portable ComfyUI installation (found python_embeded at {python_embeded_path})")
                 return "Portable ComfyUI"
@@ -223,7 +223,7 @@ class InsightfaceInstaller:
         try:
             if installation_type == "Portable ComfyUI":
                 # Use python_embedded for portable installation
-                python_embedded_path = self.comfyui_root / "python_embeded" / "python.exe"
+                python_embedded_path = self.comfyui_root.parent / "python_embeded" / "python.exe"
                 
                 if not python_embedded_path.exists():
                     return False, f"Python embedded not found at: {python_embedded_path}"
