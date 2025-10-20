@@ -6,7 +6,7 @@ A ComfyUI custom node that provides an easy-to-use interface for installing the 
 
 ## Features
 
-- 🐍 **Multi-Python Support**: Supports Python 3.10, 3.11, and 3.12
+- 🐍 **Multi-Python Support**: Supports Python 3.10, 3.11, 3.12, and 3.13
 - 🔧 **Auto-Detection**: Automatically detects portable vs regular ComfyUI installations
 - 📦 **Automatic Downloads**: Downloads wheels directly to your ComfyUI root directory
 - ⚡ **Smart Detection**: Automatically detects your ComfyUI root directory
@@ -41,7 +41,7 @@ A ComfyUI custom node that provides an easy-to-use interface for installing the 
 1. **Add the Node**: In ComfyUI, add the "Insightface Installer" node from the `utilities/installation` category
 
 2. **Configure Settings**:
-   - **Python Version**: Select your Python version (3.10, 3.11, or 3.12)
+   - **Python Version**: Select your Python version (3.10, 3.11, 3.12, or 3.13)
    - **Installation Type**: Auto-detected (Portable/Regular), but can be manually overridden if needed
    - **Force Reinstall**: Enable if you want to reinstall even if Insightface is already present
 
@@ -54,6 +54,7 @@ The node automatically downloads the appropriate wheel from the official Gourief
 - **Python 3.10**: `insightface-0.7.3-cp310-cp310-win_amd64.whl`
 - **Python 3.11**: `insightface-0.7.3-cp311-cp311-win_amd64.whl`
 - **Python 3.12**: `insightface-0.7.3-cp312-cp312-win_amd64.whl`
+- **Python 3.13**: `insightface-0.7.3-cp313-cp313-win_amd64.whl`
 
 ## Installation Types
 
@@ -114,7 +115,7 @@ ComfyUI-Insightface-Installer/
 ```
 
 ### Dependencies
-- Python 3.10, 3.11, or 3.12
+- Python 3.10, 3.11, 3.12, or 3.13
 - ComfyUI
 - Internet connection for downloading wheels
 
