@@ -30,15 +30,17 @@ class InsightfaceInstaller:
     # Wheel URLs for different Python versions
     WHEEL_URLS = {
         "3.10": "https://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp310-cp310-win_amd64.whl",
-        "3.11": "https://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp311-cp311-win_amd64.whl", 
-        "3.12": "https://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp312-cp312-win_amd64.whl"
+        "3.11": "https://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp311-cp311-win_amd64.whl",
+        "3.12": "https://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp312-cp312-win_amd64.whl",
+        "3.13": "https://github.com/Gourieff/Assets/raw/main/Insightface/insightface-0.7.3-cp313-cp313-win_amd64.whl"
     }
-    
+
     # Wheel filenames for different Python versions
     WHEEL_FILENAMES = {
         "3.10": "insightface-0.7.3-cp310-cp310-win_amd64.whl",
         "3.11": "insightface-0.7.3-cp311-cp311-win_amd64.whl",
-        "3.12": "insightface-0.7.3-cp312-cp312-win_amd64.whl"
+        "3.12": "insightface-0.7.3-cp312-cp312-win_amd64.whl",
+        "3.13": "insightface-0.7.3-cp313-cp313-win_amd64.whl"
     }
 
     @staticmethod
@@ -97,7 +99,7 @@ class InsightfaceInstaller:
 
         return {
             "required": {
-                "python_version": (["3.10", "3.11", "3.12"], {
+                "python_version": (["3.10", "3.11", "3.12", "3.13"], {
                     "default": "3.11"
                 }),
                 "installation_type": (["Regular ComfyUI", "Portable ComfyUI"], {

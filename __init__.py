@@ -6,7 +6,7 @@ based on the Python version and installation type (regular vs portable).
 
 Features:
 - Automatic Python version detection
-- Support for Python 3.10, 3.11, and 3.12
+- Support for Python 3.10, 3.11, 3.12, and 3.13
 - Handles both regular and portable ComfyUI installations
 - Downloads wheels directly to ComfyUI root directory
 - Robust error handling and user feedback
